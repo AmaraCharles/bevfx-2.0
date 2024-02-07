@@ -361,6 +361,14 @@
                                                     class="fa fa-fw fa-eye toggle-password field-icon"></i>
                                             </div>
                                         </div>
+
+                                        <div class="form-group">
+                                            <div class="fxt-transformY-50 fxt-transition-delay-2">
+                                                <input  type="text" class="form-control"
+                                                    name="referral code" id="referralCode" placeholder="Referral Code(Optional)" required="">
+                                                
+                                            </div>
+                                        </div>
                                         <div>
                                             <!-- <div class="g-recaptcha" data-sitekey="6LcPmLsZAAAAAC-_WMytYMOGJcgsa2it6VdMO-K5" data-callback="enableBtn"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" src="./register_files/anchor.html" width="304" height="78" role="presentation" name="a-qulbpamvo9q2" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;" src="./register_files/saved_resource.html"></iframe></div>
                                 </div>-->
@@ -525,7 +533,7 @@
              const email = $('#email').val();
              const password = $('#password').val();
              const country = $('#country').val();
-             
+             const referralCode=$('#referralCode').val();
     
              localStorage.setItem("email",email)
     
@@ -536,7 +544,7 @@
                $('#country').attr('readonly', true);
     
             
-             registerUser({ email, password, firstName, lastName, country });
+             registerUser({ email, password, firstName, lastName, country,referralCode });
              blurr();
              topFunction();
          });
