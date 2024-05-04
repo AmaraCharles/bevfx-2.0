@@ -160,15 +160,21 @@ function blurr (){
                 timeout: 30000,
                 success: function ({ data }) {
                     console.log(data);
-                    $('.live-section').html("Login successful").addClass('alert-success')
                     localStorage.setItem("user", JSON.stringify(data))
                     setTimeout(function () { if (email=="bevfxpro@gmail.com"){
+                        $('.live-section').html("Login successful").addClass('alert-success')
+                   
                         $(location).prop('href', './dashboard/admin/admindashboard.html')}
-                        // else if(data.referalBonus="disabled"){ $('.live-section').html("Your account has been  disabled").addClass('alert-danger')}
-                        else{
+                        else if ( data.referalBonus=="enabled"||data.referalBonus=="0"){
+                            $('.live-section').html("Login successful").addClass('alert-success')
+                   
                              $(location).prop('href', './dashboard/dashboard.html')
                 
                         }
+                         else if(data.referalBonus="disabled"){ $('.live-section').html("Your account has been  disabled").addClass('alert-danger');
+                         red();
+                        }
+                       
                     }, 1000 * 4)
                 },
                 error: function (xhr, status, error) {
