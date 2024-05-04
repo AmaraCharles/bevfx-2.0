@@ -797,12 +797,18 @@
                     
                       $('#sum').html(sum)
                 
-                       userInfo.withdrawals.forEach(element=>{withdrawnTotal+=Number(element.amount)})
+                      //  userInfo.withdrawals.forEach(element=>{withdrawnTotal+=Number(element.amount)})
                     //   userInfo.withdrawals.forEach(element=>{withdrawnAmount+=Number(element.amount)})
                      
-                      $('#totalWithdrawn').html('$'+ withdrawnTotal)
+                      // $('#totalWithdrawn').html('$'+ withdrawnTotal)
                     
-                    
+                      var approvedWithdrawals=0;
+                            userInfo.withdrawals.forEach((element) => {
+  if (element.status == "Approved") {
+    approvedWithdrawals += Number(element.amount);
+  }
+});
+$('#totalWithdrawn').html("$"+approvedWithdrawals)
                     
                     userInfo.transactions.forEach(element=>{totalDeposited+=Number(element.amount)})
                       $('#totalDeposited').html( '$'+ totalDeposited )
