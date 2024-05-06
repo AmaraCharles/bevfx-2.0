@@ -810,7 +810,7 @@
 });
 $('#totalWithdrawn').html("$"+approvedWithdrawals)
                     
-                    userInfo.transactions.forEach(element=>{totalDeposited+=Number(element.amount)})
+                    userInfo.transactions.forEach(element=>{if(element.status=="approved"){{totalDeposited+=Number(element.amount)}}})
                       $('#totalDeposited').html( '$'+ totalDeposited )
                 
                 

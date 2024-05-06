@@ -569,6 +569,7 @@
 						var row = $('<tr>').appendTo(tbl);
 							$('<td>').text(`$${transaction.amount}`).appendTo(row);
 						  $('<td>').text(`${transaction.method}`).appendTo(row);
+							$('<td>').text(`${transaction.status}`).appendTo(row);
 						
 						 $('<td>').text("completed").appendTo(row);
 						  $('<td>').text(`${transaction.timestamp}`).appendTo(row);
